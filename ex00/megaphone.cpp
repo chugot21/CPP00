@@ -1,31 +1,30 @@
-#include <iostream> //fonction d'affichage
-#include <string>
-//#include <cmath> 
 
-using namespace std; //eviter de repeter l'espace de nommage avamt l'utilisation des fonctions dela bibliotheque (std::cout). std veut dire "standard".
+#include <iostream>
+#include <cstring>
 
-int main()
+int main(int argc, char **argv)
 {
-    string str_in("\0");
-    getline(cin, str_in);
+    char *str;
+    int len;
+    int i;
+    int j;
 
-    //transformation en majuscules.
-
-    if (str_in != "\0")
-        cout << str_in << endl;
+    if (argc == 1)
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
-        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n" << endl;
+    {
+        for (j = 1; j < argc; j++)
+        {
+            str = argv[j];
+            len = strlen(str);
+            for(i = 0; i < len; i++)
+            {
+                if (str[i] >= 97 && str[i] <= 122)
+                    str[i] = str[i] - 32;
+            }
+            std::cout << str;
+        }
+        std::cout << std::endl;
+    }
     return (0);
 }
-/*
-type nom(valeur); ->declaration variable
-type& reference(nom); -> declaration d'une reference (comme un alias). le type de la reference est la meme que l variable.
-La reference est comme un pointeur sur la meme case memoire que la variable.
-c-out = cout <<
-c-in = cin >> , coupe la leture au premier espace ou retour a la ligne donc utiliser getline().
-Quand on utilise getline() apres cin >> a, il faut utiliser cin.ignore(); entre deux sinon ca ne fonctionne pas.
-and = &&
-or = ||
-not = !
-
-*/

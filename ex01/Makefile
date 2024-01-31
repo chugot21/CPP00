@@ -1,6 +1,8 @@
-NAME =	megaphone
+NAME =	MyAwesomePhoneBook
 
-SRCS =	megaphone.cpp \
+SRCS =	phonebook.cpp \
+		contact.cpp \
+		main.cpp \
 
 CC = c++
 
