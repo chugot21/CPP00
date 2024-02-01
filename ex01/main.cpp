@@ -18,7 +18,9 @@ void    add(PhoneBook *directory)
 	Contact contact;
 	std::string input;
 
-	std::cin.ignore();
+	std::cin.clear();
+	std::cout << "First Name : ";
+	std::getline(std::cin, input);
 	while (input == "")
 	{
 		std::cout << "First Name : ";
@@ -88,22 +90,20 @@ void    display_contact(PhoneBook *directory, int index)
 void    search(PhoneBook *directory)
 {
 	int i;
-	int input;
+	std::string input;
 
 	std::cout << "_____________________________________________" << std::endl;
 	std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
 	for (i = 0; i < directory->get_nbcontact(); i++)
 		display_contactlist(directory, i);
-	std::cout << "Entrez l'index du contact : " << std::endl;
-	//std::cin >> input;
-	while (input < 0 || input >= directory->get_nbcontact())
+	std::cout << "Enter index of contact : " << std::endl;
+	while (!(std::getline(std::cin, input)) || input < "0" || input >= std::to_string(directory->get_nbcontact()))
 	{
-		std::cin >> input;
-		std:: cout << "Wrong index, please retry : ";
 		std::cin.clear();
+		std::cout << "Wrong index, please retry : ";
 	}
-	display_contact(directory, input);
+	display_contact(directory, std::stoi(input));
 }
 
 int main()
@@ -113,19 +113,15 @@ int main()
 
 	while (42)
 	{
-		//str = "";
-		//while (str == "")
-		//{
-			std:: cout << "Entrez une commande (ADD, SEARCH ou EXIT) : ";
-			std::cin >> str;
-		//}
+		std::cout << "Entrez une commande (ADD, SEARCH ou EXIT) : ";
+		std::getline(std::cin, str);
 		if (str == "ADD")
 			add(&directory);
 		else if (str == "SEARCH")
 			search(&directory);
 		else if (str == "EXIT")
 		{
-			std::cout << "Phonebook is closed forever" << std::endl;
+			std::cout << "Phonebook is closed forever." << std::endl;
 			return(0);
 		}
 	}

@@ -16,6 +16,7 @@
 #include <cstring>
 #include <string>
 #include <iomanip>
+#include <limits>
 
 class Contact{
 
