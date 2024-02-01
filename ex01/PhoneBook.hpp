@@ -6,7 +6,7 @@
 /*   By: clara <clara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:39:00 by clara             #+#    #+#             */
-/*   Updated: 2024/01/31 18:45:41 by clara            ###   ########.fr       */
+/*   Updated: 2024/02/01 11:27:10 by clara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,25 @@
 #include <string>
 #include <iomanip>
 
-class PhoneBook{
+class PhoneBook
+{
 
 public:
 
-    Contact *tab_contact;
-    int older_contact;
-
-    PhoneBook(void);
+    PhoneBook(int a1, int a2);
     ~PhoneBook(void);
+
+    Contact getContact(int index) const;
+    int get_nbcontact() const;
+
+    void    setcontact(Contact contact);
+
+private:
+
+    static int	_nbcontact;
+    Contact _tabcontacts[8];
+    int _index;
+    int _oldercontact;
 
 };
 

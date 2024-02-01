@@ -6,7 +6,7 @@
 /*   By: clara <clara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:52:46 by clara             #+#    #+#             */
-/*   Updated: 2024/01/31 18:54:53 by clara            ###   ########.fr       */
+/*   Updated: 2024/02/01 12:38:04 by clara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,29 @@
 class Contact{
 
 public:
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
-	int	nb_on_list;
 
 	Contact(void);
 	~Contact(void);
 
-	void	modif_contact(void);
-	int		get_nbcontact(void);
+	std::string getfirstname() const;
+	std::string getlastname() const;
+	std::string getnickname() const;
+	std::string getphonenumber() const;
+	std::string getdarkestsecret() const;
+
+	void	setfirstname(std::string firstname);
+	void	setlastname(std::string lastname);
+	void	setnickname(std::string nickname);
+	void	setphonenumber(std::string phonenumber);
+	void	setsecret(std::string secret);
 
 private:
 
-	int	_nbcontact;
+	std::string	_firstname;
+	std::string	_lastname;
+	std::string	_nickname;
+	std::string	_phonenumber;
+	std::string	_darkestsecret;
 
 };
 
