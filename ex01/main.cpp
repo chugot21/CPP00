@@ -97,7 +97,7 @@ void    search(PhoneBook *directory)
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
 	for (i = 0; i < directory->get_nbcontact(); i++)
 		display_contactlist(directory, i);
-	std::cout << "Enter index of contact : " << std::endl;
+	std::cout << "Enter index of contact : ";
 	while (!(std::getline(std::cin, input)) || input < "0" || input >= std::to_string(directory->get_nbcontact()))
 	{
 		std::cin.clear();
